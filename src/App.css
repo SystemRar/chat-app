@@ -2,3 +2,22 @@
     margin: 0;
     padding: 0;
 }
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    height: 96vh;
+
+    padding: 2vh 20%;
+}
+
+.input-and-send-button {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+
+    width: 100%;
+}

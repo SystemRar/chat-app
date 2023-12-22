@@ -1,0 +1,24 @@
+.chat-window {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 7px;
+    margin-bottom: 7px;
+
+    width: 100%;
+}
+
+.message {
+    font-size: 1.1rem;
+
+    display: flex;
+    align-items: flex-end;
+
+    background-color: #45545d;
+
+    border-radius: 3px;
+    padding: 5px;
+}
