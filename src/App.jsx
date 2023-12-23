@@ -1,27 +1,22 @@
 import './App.css';
-import MessageInput from "./Components/MessageInput/MessageInput.jsx";
-import SendButton from "./Components/SendButton/SendButton.jsx";
+
+import MessageForm from "./components/MessageInput/MessageForm.jsx";
+import ChatWindow from "./components/ChatWindow/ChatWindow.jsx";
+
 import {useState} from "react";
-import ChatWindow from "./Components/ChatWindow/ChatWindow.jsx";
 
 function App() {
-    const [message, setMessage] = useState('');
-    const [allMessages, setAllMessages] = useState([]);
-
-    function handleMessageChange(messageInputValue) {
-        setMessage(messageInputValue);
-    }
+    const [messages, setMessages] = useState([]);
 
     function handleSendMessage(sentMessage) {
-        setAllMessages(prevState => [...prevState, sentMessage]);
+        setMessages(prevState => [...prevState, sentMessage])
     }
 
     return (
         <div className={'wrapper'}>
-            <ChatWindow allMessages={allMessages}/>
+            <ChatWindow messages={messages}/>
             <div className={'input-and-send-button'}>
-                <MessageInput handleMessageChange={handleMessageChange}/>
-                <SendButton handleSendMessages={handleSendMessage} message={message}/>
+                <MessageForm sendMessage={handleSendMessage}/>
             </div>
         </div>
     )
