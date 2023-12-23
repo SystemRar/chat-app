@@ -1,9 +1,11 @@
 import './MessageForm.css';
+
 import PropTypes from "prop-types";
-import {useState} from "react";
+import React, {useState} from "react";
+
 import SendButton from "../SendButton/SendButton.jsx";
 
-function MessageForm({sendMessage}) {
+const MessageForm = React.memo(({sendMessage}) => {
     const [message, setMessage] = useState('');
 
     function handleChange(event) {
@@ -29,7 +31,7 @@ function MessageForm({sendMessage}) {
             <SendButton sendMessage={sendMessage} message={message} setMessage={setMessage}/>
         </form>
     )
-}
+});
 
 MessageForm.propTypes = {
     sendMessage: PropTypes.func

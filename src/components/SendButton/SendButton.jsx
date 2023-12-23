@@ -1,8 +1,9 @@
 import './SendButton.css';
+
 import PropTypes from "prop-types";
+import React from "react";
 
-function SendButton({sendMessage, message, setMessage}) {
-
+const SendButton = React.memo(({sendMessage, message, setMessage}) => {
     function handleClick(event) {
         event.preventDefault();
 
@@ -17,15 +18,15 @@ function SendButton({sendMessage, message, setMessage}) {
             onClick={handleClick}
             type={"submit"}
         >
-            Send</button>
-    )
-}
+            Send
+        </button>
+    );
+});
 
 SendButton.propTypes = {
     sendMessage: PropTypes.func,
     message: PropTypes.string,
     setMessage: PropTypes.func
-}
-
+};
 
 export default SendButton;
