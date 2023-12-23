@@ -1,3 +1,8 @@
+form {
+    display: flex;
+    gap: 7px;
+}
+
 input {
     width: 100%;
 
