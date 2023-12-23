@@ -3,14 +3,14 @@ import './App.css';
 import MessageForm from "./components/MessageInput/MessageForm.jsx";
 import ChatWindow from "./components/ChatWindow/ChatWindow.jsx";
 
-import {useState} from "react";
+import {useCallback, useState} from "react";
 
 function App() {
     const [messages, setMessages] = useState([]);
 
-    function handleSendMessage(sentMessage) {
+    const handleSendMessage = useCallback((sentMessage) => {
         setMessages(prevState => [...prevState, sentMessage])
-    }
+    }, []);
 
     return (
         <div className={'wrapper'}>

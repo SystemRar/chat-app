@@ -1,23 +1,23 @@
 import './MessageForm.css';
 
 import PropTypes from "prop-types";
-import React, {useState} from "react";
+import {memo, useCallback, useState} from "react";
 
 import SendButton from "../SendButton/SendButton.jsx";
 
-const MessageForm = React.memo(({sendMessage}) => {
+const MessageForm = memo(function MessageForm({sendMessage}) {
     const [message, setMessage] = useState('');
 
-    function handleChange(event) {
+    const handleChange = useCallback((event) => {
         setMessage(event.target.value);
-    }
+    }, []);
 
-    function handleSend(event) {
+    const handleSend = useCallback((event) => {
         if (event.key === 'Enter' && message.trim() !== '') {
             sendMessage(message);
             setMessage('');
         }
-    }
+    }, [message, sendMessage]);
 
     return (
         <form>
@@ -30,11 +30,13 @@ const MessageForm = React.memo(({sendMessage}) => {
             />
             <SendButton sendMessage={sendMessage} message={message} setMessage={setMessage}/>
         </form>
-    )
+    );
 });
 
 MessageForm.propTypes = {
     sendMessage: PropTypes.func
-}
+};
+
+MessageForm.displayName = 'MessageForm';
 
 export default MessageForm;

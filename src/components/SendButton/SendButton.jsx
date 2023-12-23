@@ -1,22 +1,21 @@
 import './SendButton.css';
 
 import PropTypes from "prop-types";
-import React from "react";
+import {memo, useCallback} from "react";
 
-const SendButton = React.memo(({sendMessage, message, setMessage}) => {
-    function handleClick(event) {
+const SendButton = memo(function SendButton({sendMessage, message, setMessage}) {
+    const handleClick = useCallback((event) => {
         event.preventDefault();
-
         if (message.trim() !== '') {
             sendMessage(message);
             setMessage('');
         }
-    }
+    }, [message, sendMessage, setMessage]);
 
     return (
         <button
             onClick={handleClick}
-            type={"submit"}
+            type="submit"
         >
             Send
         </button>
@@ -28,5 +27,7 @@ SendButton.propTypes = {
     message: PropTypes.string,
     setMessage: PropTypes.func
 };
+
+SendButton.displayName = 'SendButton';
 
 export default SendButton;
