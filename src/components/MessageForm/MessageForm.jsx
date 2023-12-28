@@ -7,26 +7,27 @@ import DeleteMessageHistoryButton from '../DeleteMessageHistoryButton/DeleteMess
 import SendButton from '../SendButton/SendButton';
 
 const MessageForm = memo(({ sendMessage, deleteMessages }) => {
-  console.log('form');
   const message = useRef('');
+  const formRef = useRef(null);
 
   function onHandleChange(event) {
     message.current = event.target.value;
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
 
     const isMessageEmpty = message.current.trim() === '';
 
     if (!isMessageEmpty) {
       sendMessage(message.current.trim());
+      formRef.current.reset();
     }
     message.current = '';
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form ref={formRef} onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Write a message"
