@@ -1,0 +1,13 @@
+.delete-history-button {
+    outline: none;
+    border: 0;
+    border-radius: 3px;
+
+    color: #FFFFFFDD;
+    background-color: #37AA9C;
+
+    padding: 7px;
+    min-width: 103px;
+
+    font-size: 0.9rem;
+}
