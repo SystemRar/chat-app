@@ -1,24 +1,21 @@
 import './ChatWindow.css';
 
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-function ChatWindow({messages}) {
+function ChatWindow({ messages }) {
+  const messagesHistory = messages.map((message, index) => (
+    <p key={index} className="message">{message}</p>
+  ));
 
-    const messageHistory = messages.map((message, index) => {
-        return (
-            <p key={index} className={'message'}>{message}</p>
-        )
-    });
-
-    return (
-        <div className={'chat-window'}>
-            {messageHistory}
-        </div>
-    )
+  return (
+    <div className="chat-window">
+      {messagesHistory}
+    </div>
+  );
 }
 
 ChatWindow.propTypes = {
-    messages: PropTypes.arrayOf(PropTypes.string)
-}
+  messages: PropTypes.arrayOf(PropTypes.string),
+};
 
 export default ChatWindow;
