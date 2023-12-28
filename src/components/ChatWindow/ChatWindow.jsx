@@ -1,6 +1,7 @@
 import './ChatWindow.css';
 
 import PropTypes from 'prop-types';
+import { memo } from 'react';
 
 function ChatWindow({ messages }) {
   const messagesHistory = messages.map((message, index) => (
@@ -14,8 +15,12 @@ function ChatWindow({ messages }) {
   );
 }
 
+ChatWindow.defaultProps = {
+  messages: [],
+};
+
 ChatWindow.propTypes = {
   messages: PropTypes.arrayOf(PropTypes.string),
 };
 
-export default ChatWindow;
+export default memo(ChatWindow);

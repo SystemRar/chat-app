@@ -1,27 +1,28 @@
 import './MessageForm.css';
 
 import PropTypes from 'prop-types';
-import { memo, useState } from 'react';
+import { memo, useRef } from 'react';
 
 import DeleteMessageHistoryButton from '../DeleteMessageHistoryButton/DeleteMessageHistoryButton';
 import SendButton from '../SendButton/SendButton';
 
 const MessageForm = memo(({ sendMessage, deleteMessages }) => {
-  const [message, setMessage] = useState('');
+  console.log('form');
+  const message = useRef('');
 
   function onHandleChange(event) {
-    setMessage(event.target.value);
+    message.current = event.target.value;
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    const isMessageEmpty = message.trim() === '';
+    const isMessageEmpty = message.current.trim() === '';
 
     if (!isMessageEmpty) {
-      sendMessage(message.trim());
+      sendMessage(message.current.trim());
     }
-    setMessage('');
+    message.current = '';
   }
 
   return (
@@ -30,7 +31,6 @@ const MessageForm = memo(({ sendMessage, deleteMessages }) => {
         type="text"
         placeholder="Write a message"
         onChange={onHandleChange}
-        value={message}
         className="input-message"
       />
       <SendButton />
@@ -38,6 +38,11 @@ const MessageForm = memo(({ sendMessage, deleteMessages }) => {
     </form>
   );
 });
+
+MessageForm.defaultProps = {
+  sendMessage: '',
+  deleteMessages: null,
+};
 
 MessageForm.propTypes = {
   sendMessage: PropTypes.func,

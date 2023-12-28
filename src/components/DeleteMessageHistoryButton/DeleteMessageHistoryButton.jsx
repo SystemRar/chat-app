@@ -1,6 +1,7 @@
 import './DeleteMessageHistoryButton.css';
 
 import PropTypes from 'prop-types';
+import { memo } from 'react';
 
 function DeleteMessageHistoryButton({ deleteMessages }) {
   function handleClick(event) {
@@ -20,8 +21,12 @@ function DeleteMessageHistoryButton({ deleteMessages }) {
   );
 }
 
+DeleteMessageHistoryButton.defaultProps = {
+  deleteMessages: null,
+};
+
 DeleteMessageHistoryButton.propTypes = {
   deleteMessages: PropTypes.func,
 };
 
-export default DeleteMessageHistoryButton;
+export default memo(DeleteMessageHistoryButton);

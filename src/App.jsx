@@ -22,9 +22,9 @@ function App() {
     setMessages((prevState) => [...prevState, message]);
   }, []);
 
-  const handleDeleteMessageHistory = () => {
+  const handleDeleteMessageHistory = useCallback(() => {
     setMessages([]);
-  };
+  }, []);
 
   return (
     <div className="wrapper">
