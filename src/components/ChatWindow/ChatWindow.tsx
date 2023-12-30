@@ -1,26 +1,21 @@
 import './ChatWindow.css';
 
-import PropTypes from 'prop-types';
-import { memo } from 'react';
+import React, {FC, memo} from 'react';
 
-function ChatWindow({ messages }) {
-  const messagesHistory = messages.map((message, index) => (
-    <p key={index} className="message">{message}</p>
-  ));
-
-  return (
-    <div className="chat-window">
-      {messagesHistory}
-    </div>
-  );
+interface ChatWindowProps {
+    messages: Array<string>;
 }
 
-ChatWindow.defaultProps = {
-  messages: [],
-};
+const ChatWindow: FC<ChatWindowProps> = ({messages}) => {
+    const messagesHistory = messages.map((message: string, index: number) => (
+        <p key={index} className="message">{message}</p>
+    ));
 
-ChatWindow.propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.string),
-};
+    return (
+        <div className="chat-window">
+            {messagesHistory}
+        </div>
+    );
+}
 
 export default memo(ChatWindow);
