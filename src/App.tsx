@@ -2,8 +2,8 @@ import './App.css';
 
 import { useCallback, useEffect, useState } from 'react';
 
-import ChatWindow from './components/ChatWindow/ChatWindow';
-import MessageForm from './components/MessageForm/MessageForm';
+import ChatWindow from './components/ChatWindow/ChatWindow.js';
+import MessageForm from './components/MessageForm/MessageForm.js';
 
 function App() {
   const [messages, setMessages] = useState(() => {

@@ -3,7 +3,7 @@ import './MessageForm.css';
 import PropTypes from 'prop-types';
 import { memo, useRef } from 'react';
 
-import DeleteMessageHistoryButton from '../DeleteMessageHistoryButton/DeleteMessageHistoryButton';
+import DeleteMessageHistoryButton from '../DeleteMessageHistoryButton/DeleteMessageHistoryButton.js';
 import SendButton from '../SendButton/SendButton';
 
 const MessageForm = memo(({ sendMessage, deleteMessages }) => {
