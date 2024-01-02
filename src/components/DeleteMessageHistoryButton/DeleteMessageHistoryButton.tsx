@@ -1,26 +1,26 @@
 import './DeleteMessageHistoryButton.css';
-import React, {FC, memo} from 'react';
+import React, { memo } from 'react';
 
-interface DeleteMessageHistoryButtonProps {
-    deleteMessages: Function;
+interface DeleteHistoryProps {
+  deleteMessages: () => void;
 }
 
-const DeleteMessageHistoryButton: FC<DeleteMessageHistoryButtonProps> = ({deleteMessages}) => {
-    function handleClick(event: React.MouseEvent) {
-        event.preventDefault();
+function DeleteMessageHistoryButton({ deleteMessages }: DeleteHistoryProps) {
+  function handleClick(event: React.MouseEvent) {
+    event.preventDefault();
 
-        deleteMessages();
-    }
+    deleteMessages();
+  }
 
-    return (
-        <button
-            className="delete-history-button"
-            type="button"
-            onClick={handleClick}
-        >
-            Delete history
-        </button>
-    );
+  return (
+    <button
+      className="delete-history-button"
+      type="button"
+      onClick={handleClick}
+    >
+      Delete history
+    </button>
+  );
 }
 
 export default memo(DeleteMessageHistoryButton);
