@@ -1,5 +1,5 @@
-import './MessageForm.css';
 import React, { memo, useRef } from 'react';
+import { input_message, message_form } from './MessageForm.module.css';
 
 import DeleteMessageHistoryButton from '../DeleteMessageHistoryButton/DeleteMessageHistoryButton.js';
 import SendButton from '../SendButton/SendButton';
@@ -31,12 +31,12 @@ const MessageForm = memo(({ onSendMessage, deleteMessages }: MessageFormProps) =
   }
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit}>
+    <form ref={formRef} onSubmit={handleSubmit} className={message_form}>
       <input
         type="text"
         placeholder="Write a message"
         onChange={onHandleChange}
-        className="input-message"
+        className={input_message}
       />
       <SendButton />
       <DeleteMessageHistoryButton deleteMessages={deleteMessages} />

@@ -1,11 +1,11 @@
-import './SendButton.css';
-
 import { memo } from 'react';
+// @ts-ignore
+import { send_button } from './SendButton.module.css';
 
 const SendButton = memo(() => (
   <button
     type="submit"
-    className="send-button"
+    className={send_button}
   >
     Send
   </button>

@@ -1,4 +1,4 @@
-.send-button {
+.delete_history_button {
     outline: none;
     border: 0;
     border-radius: 3px;
@@ -7,7 +7,7 @@
     background-color: #37AA9C;
 
     padding: 7px;
-    width: 55px;
+    min-width: 103px;
 
     font-size: 0.9rem;
 }

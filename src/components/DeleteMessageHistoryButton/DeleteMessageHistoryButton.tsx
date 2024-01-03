@@ -1,5 +1,6 @@
-import './DeleteMessageHistoryButton.css';
 import React, { memo } from 'react';
+// @ts-ignore
+import { delete_history_button } from './DeleteMessageHistoryButton.module.css';
 
 interface DeleteHistoryProps {
   deleteMessages: () => void;
@@ -14,7 +15,7 @@ function DeleteMessageHistoryButton({ deleteMessages }: DeleteHistoryProps) {
 
   return (
     <button
-      className="delete-history-button"
+      className={delete_history_button}
       type="button"
       onClick={handleClick}
     >

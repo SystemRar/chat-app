@@ -1,6 +1,6 @@
-import './App.css';
-
 import { useCallback, useEffect, useState } from 'react';
+// @ts-ignore
+import { input_and_send_button, wrapper } from './App.module.css';
 
 import ChatWindow from './components/ChatWindow/ChatWindow';
 import MessageForm from './components/MessageForm/MessageForm';
@@ -27,9 +27,9 @@ function App() {
   }, []);
 
   return (
-    <div className="wrapper">
+    <div className={wrapper}>
       <ChatWindow messages={messages} />
-      <div className="input-and-send-button">
+      <div className={input_and_send_button}>
         <MessageForm onSendMessage={handleSendMessage} deleteMessages={handleDeleteMessageHistory} />
       </div>
     </div>
